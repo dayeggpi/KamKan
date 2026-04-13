@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KamKan — Markdown-Native Kanban for Windows, Mac & Linux</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <span class="nav-logo-mark">K</span>KamKan
+      </a>
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#format">Data Format</a></li>
+        <li><a href="#themes">Themes</a></li>
+        <li><a href="#shortcuts">Shortcuts</a></li>
+        <li><a href="#download" class="nav-cta">Download</a></li>
+      </ul>
+      <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="nav-mobile">
+      <a href="#features">Features</a>
+      <a href="#format">Data Format</a>
+      <a href="#themes">Themes</a>
+      <a href="#shortcuts">Shortcuts</a>
+      <a href="#download">Download</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Plain Markdown · No Database · Version-Control Friendly
+      </div>
+      <h1 class="hero-title">
+        Kanban boards<br/>
+        <em>that live in<br/>your files.</em>
+      </h1>
+      <p class="hero-sub">
+        KamKan locally stores every task as a plain <code>.md</code> file — readable in any editor,
+        trackable in Git, and beautiful in the app.
+      </p>
+      <div class="hero-actions">
+        <a href="#download" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Free
+        </a>
+        <a href="#features" class="btn btn-ghost">See all features →</a>
+      </div>
+      <div class="hero-platforms">
+        <span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>
+          Windows 10/11
+        </span>
+        <span>
+          <svg width="14" height="14" viewBox="0 0 814 1000" fill="currentColor"><path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76 0-103.7 40.8-165.9 40.8s-105-37.5-155.5-127.4C46 790.7 0 663 0 541.8c0-207.3 135.3-316.9 269-316.9 70.9 0 130 46.4 174.5 46.4 42.8 0 110.1-49.4 193.9-49.4 31.2 0 108.2 2.6 160.8 74.4zm-164.5-256c34.5-40.8 60.1-97.8 60.1-154.8 0-7.9-.6-15.8-2-22.1-57.4 2-125.3 38.3-168.1 86.4-32.5 36.9-60.1 93.9-60.1 151.6 0 8.5 1.3 17 2 19.6 3.3.6 8.6 1.3 13.9 1.3 51.5 0 113.1-34.5 154.2-82z"/></svg>
+          macOS <em>soon</em>
+        </span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="app-window">
+        <div class="window-bar">
+          <div class="window-dots">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+          </div>
+          <span class="window-title">KamKan — HOUSE</span>
+          <div class="window-dots-right">
+            <span class="win-btn">─</span>
+            <span class="win-btn">□</span>
+            <span class="win-btn win-x">✕</span>
+          </div>
+        </div>
+        <div class="window-body">
+          <div class="win-sidebar">
+            <div class="sidebar-section">WORKSPACE</div>
+            <div class="sidebar-item active">HOUSE</div>
+            <div class="sidebar-item">WORK</div>
+            <div class="sidebar-item">PROJ</div>
+          </div>
+          <div class="win-board">
+            <div class="board-col">
+              <div class="col-header">Todo <span class="col-count">3</span></div>
+              <div class="task-card">
+                <div class="task-check"></div>
+                <div class="task-info">
+                  <div class="task-title">Mow the lawn</div>
+                  <div class="task-meta"><span class="task-id">HOUSE-1</span><span class="task-priority m">M</span><span class="task-due overdue">02/04/26</span></div>
+                </div>
+              </div>
+              <div class="task-card">
+                <div class="task-check"></div>
+                <div class="task-info">
+                  <div class="task-title">Organize pantry</div>
+                  <div class="task-meta"><span class="task-id">HOUSE-2</span><span class="task-priority l">L</span></div>
+                </div>
+              </div>
+              <div class="task-card highlight-card">
+                <div class="task-check"></div>
+                <div class="task-info">
+                  <div class="task-title">Buy groceries for the week</div>
+                  <div class="task-meta"><span class="task-id">HOUSE-3</span><span class="task-priority m">M</span><span class="task-tag">food</span></div>
+                </div>
+              </div>
+              <div class="col-add">Add task… (Alt+Enter for details)</div>
+            </div>
+            <div class="board-col">
+              <div class="col-header">Ongoing <span class="col-count">2</span></div>
+              <div class="task-card">
+                <div class="task-check"></div>
+                <div class="task-info">
+                  <div class="task-title">Wash and fold laundry</div>
+                  <div class="task-meta"><span class="task-id">HOUSE-4</span><span class="task-priority l">L</span></div>
+                </div>
+              </div>
+              <div class="task-card urgent-card">
+                <div class="task-check"></div>
+                <div class="task-info">
+                  <div class="task-title">Defrost the deep freezer</div>
+                  <div class="task-meta"><span class="task-id">HOUSE-5</span><span class="task-priority e">E</span></div>
+                </div>
+              </div>
+              <div class="col-add">Add task… (Alt+Enter for details)</div>
+            </div>
+            <div class="board-col done-col">
+              <div class="col-header"><span class="done-badge">DONE</span> Done <span class="col-count">2</span></div>
+              <div class="task-card done-card">
+                <div class="task-check checked"></div>
+                <div class="task-info">
+                  <div class="task-title done-title">Wash the morning dishes</div>
+                  <div class="task-meta"><span class="task-id">HOUSE-6</span></div>
+                </div>
+              </div>
+              <div class="task-card done-card">
+                <div class="task-check checked"></div>
+                <div class="task-info">
+                  <div class="task-title done-title">Take out the recycling</div>
+                  <div class="task-meta"><span class="task-id">HOUSE-7</span></div>
+                </div>
+              </div>
+              <div class="col-add">Add task… (Alt+Enter for details)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-floating-tag tag-1"><code># board.md</code></div>
+    </div>
+  </section>
+
+  <!-- MARQUEE STRIP -->
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <span>Markdown-native</span><span class="sep">·</span>
+      <span>No database</span><span class="sep">·</span>
+      <span>Git-friendly</span><span class="sep">·</span>
+      <span>Drag & drop</span><span class="sep">·</span>
+      <span>Wikilinks</span><span class="sep">·</span>
+      <span>20+ theme colors</span><span class="sep">·</span>
+      <span>File watcher</span><span class="sep">·</span>
+      <span>System tray</span><span class="sep">·</span>
+      <span>Subtasks</span><span class="sep">·</span>
+      <span>Dependencies</span><span class="sep">·</span>
+      <span>Bulk actions</span><span class="sep">·</span>
+      <span>Markdown-native</span><span class="sep">·</span>
+      <span>No database</span><span class="sep">·</span>
+      <span>Git-friendly</span><span class="sep">·</span>
+      <span>Drag & drop</span><span class="sep">·</span>
+      <span>Wikilinks</span><span class="sep">·</span>
+      <span>20+ theme colors</span><span class="sep">·</span>
+      <span>File watcher</span><span class="sep">·</span>
+      <span>System tray</span><span class="sep">·</span>
+      <span>Subtasks</span><span class="sep">·</span>
+      <span>Dependencies</span><span class="sep">·</span>
+      <span>Bulk actions</span><span class="sep">·</span>
+    </div>
+  </div>
+
+  <!-- PHILOSOPHY -->
+  <section class="philosophy">
+    <div class="container">
+      <div class="philosophy-grid">
+        <div class="philosophy-text">
+          <p class="section-eyebrow">Philosophy</p>
+          <h2>Your tasks belong<br/><em>to you.</em></h2>
+          <p>No accounts. No cloud sync. No proprietary format. KamKan boards are valid Markdown files you can open in notepad or VS Code, commit to Git, or read in a terminal. The app is just a beautiful layer on top of your filesystem.</p>
+        </div>
+        <div class="philosophy-pillars">
+          <div class="pillar">
+            <div class="pillar-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            </div>
+            <h3>Plain files</h3>
+            <p>Every board is a <code>.md</code> file. Task details are separate <code>.md</code> files in a folder. Open them anywhere.</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+            </div>
+            <h3>Zero lock-in</h3>
+            <p>Stop using KamKan tomorrow — your data stays exactly where it was, fully readable.</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <h3>Version control</h3>
+            <p>Track every change with Git. Diff tasks. Revert columns. Review history. It just works.</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <h3>Live file watcher</h3>
+            <p>Edit in VS Code while KamKan is open — it detects changes and refreshes automatically.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Features</p>
+        <h2>Everything a power user needs.</h2>
+      </div>
+
+      <div class="features-grid">
+
+        <div class="feature-block feature-large">
+          <div class="feature-label">Boards & Columns</div>
+          <h3>Columns that work<br/>your way.</h3>
+          <p>Drag to reorder, set max task limits, mark as Done for auto-completion, archive, hide, or accent with a custom hex color. Column headers support full Markdown.</p>
+          <div class="feature-tags">
+            <span>Drag & drop</span><span>Max limits</span><span>Done column</span><span>Archive</span><span>Hex accent colors</span>
+          </div>
+        </div>
+
+        <div class="feature-block">
+          <div class="feature-label">Tasks</div>
+          <h3>Smart task cards.</h3>
+          <p>Quick-create with <kbd>Enter</kbd>, or open the full editor with <kbd>Alt+Enter</kbd>. Double-click to rename inline. Right-click for a context menu.</p>
+          <div class="feature-tags">
+            <span>Priority badges</span><span>Due dates</span><span>Tags</span>
+          </div>
+        </div>
+
+        <div class="feature-block">
+          <div class="feature-label">Task Details</div>
+          <h3>Rich detail editor.</h3>
+          <p>Each task can have priority, tags, due date, subtasks with completion tracking, cross-task dependencies, and a full Markdown description with live preview.</p>
+          <div class="feature-tags">
+            <span>Subtasks</span><span>Dependencies</span><span>Markdown</span>
+          </div>
+        </div>
+
+        <div class="feature-block feature-wide">
+          <div class="feature-label">Markdown</div>
+          <h3>Full Markdown support — including <em>Wikilinks.</em></h3>
+          <p>Use <code>[[BOARD-ID]]</code> to link a whole board, or <code>[[BOARD-ID-N]]</code> to link a specific task. Wikilink autocomplete fires when you type <code>[[</code>. Plus formatting toolbar, live preview, checkbox toggle, code blocks, and more.</p>
+          <div class="md-demo">
+            <div class="md-line"><span class="md-keyword">## </span><span>In Progress</span> <span class="md-attr">[color:#5B8DEF]</span></div>
+            <div class="md-line"><span class="md-list">- [ ] </span><span class="md-num">3</span><span class="md-sep">|</span>Fix login bug — see <span class="md-wiki">[[PROJ-12]]</span></div>
+            <div class="md-line"><span class="md-list">- [ ] </span><span class="md-num">4</span><span class="md-sep">|</span>Deploy to staging</div>
+            <div class="md-line"><span class="md-keyword">## </span><span>Done</span></div>
+            <div class="md-line"><span class="md-list">- [x] </span><span class="md-num">1</span><span class="md-sep">|</span><span class="md-done">Write unit tests</span></div>
+          </div>
+        </div>
+
+        <div class="feature-block">
+          <div class="feature-label">Search & Filter</div>
+          <h3>Find anything, fast.</h3>
+          <p>Real-time full-text search across titles, descriptions, and tags. Filter by priority, date range, or tasks with open subtasks. Filters persist while navigating.</p>
+        </div>
+
+        <div class="feature-block">
+          <div class="feature-label">Bulk Actions</div>
+          <h3>Move many at once.</h3>
+          <p>Toggle bulk mode with <kbd>Ctrl+B</kbd>, select multiple tasks, then move them to any column or even another board — with overflow detection built in.</p>
+        </div>
+
+        <div class="feature-block feature-large">
+          <div class="feature-label">Themes</div>
+          <h3>20+ individually<br/>tunable colors.</h3>
+          <p>Backgrounds, text tiers, borders, sidebar, tags, priority colors, wikilinks, checkboxes, scrollbar — everything. Import and export themes as JSON. Changes apply live.</p>
+          <div class="theme-swatches">
+            <div class="swatch" style="background:#1a1b1e"></div>
+            <div class="swatch" style="background:#2c2d32"></div>
+            <div class="swatch" style="background:#5B8DEF"></div>
+            <div class="swatch" style="background:#4CAF82"></div>
+            <div class="swatch" style="background:#E05C5C"></div>
+            <div class="swatch" style="background:#E8A838"></div>
+            <div class="swatch" style="background:#A78BFA"></div>
+            <div class="swatch" style="background:#34B8C7"></div>
+          </div>
+        </div>
+
+        <div class="feature-block">
+          <div class="feature-label">Workspace</div>
+          <h3>Folders & boards.</h3>
+          <p>Organize boards in a folder tree in the sidebar. Drag boards between folders — it physically moves the files on disk. Choose any workspace path.</p>
+        </div>
+
+        <div class="feature-block">
+          <div class="feature-label">System Integration</div>
+          <h3>Tray, startup, zoom.</h3>
+          <p>Minimize to system tray. Run on Windows startup. Custom frameless window. Zoom from 60% to 170% with <kbd>Ctrl+Scroll</kbd>.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- DATA FORMAT -->
+  <section class="format" id="format">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Data Format</p>
+        <h2>Readable by humans.<br/><em>And machines.</em></h2>
+        <p class="section-sub">Every board and task is a standard Markdown file. No proprietary encoding, no binary blobs.</p>
+      </div>
+      <div class="format-grid">
+        <div class="format-card">
+          <div class="format-card-header">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            board_HOUSE.md
+          </div>
+          <pre class="code-block"><span class="c-kw">## </span>Todo <span class="c-attr">[max:10] [color:#5B8DEF]</span>
+<span class="c-list">- [ ] </span><span class="c-num">1</span>|Mow the lawn
+<span class="c-list">- [ ] </span><span class="c-num">2</span>|Organize pantry
+<span class="c-list">- [ ] </span><span class="c-num">3</span>|Buy groceries
+
+<span class="c-kw">## </span>In Progress
+<span class="c-list">- [ ] </span><span class="c-num">4</span>|Defrost the freezer
+
+<span class="c-comment">***</span>
+
+<span class="c-kw">## </span>Archive
+<span class="c-list">- [x] </span><span class="c-num">5</span>|Fix the roof</pre>
+        </div>
+        <div class="format-card">
+          <div class="format-card-header">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            HOUSE/HOUSE-3.md
+          </div>
+          <pre class="code-block"><span class="c-comment">---</span>
+<span class="c-kw">ID:</span> 3
+<span class="c-kw">Tags:</span> [food, weekly]
+<span class="c-kw">Priority:</span> Medium
+<span class="c-kw">Link:</span>
+  <span class="c-kw">Depends_on:</span> []
+  <span class="c-kw">Blocks:</span> [HOUSE-7]
+<span class="c-kw">Due_date:</span> 2026-04-10
+<span class="c-comment">---</span>
+
+<span class="c-kw">## </span>Description
+Buy everything on the weekly list.
+<span class="c-wiki">[[HOUSE-7]]</span> depends on this.
+
+<span class="c-kw">## </span>Subtasks
+<span class="c-list">- [ ] </span>Fruits & vegetables
+<span class="c-list">- [x] </span>Dairy
+<span class="c-list">- [ ] </span>Cleaning supplies</pre>
+        </div>
+        <div class="format-card">
+          <div class="format-card-header">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            settings.json
+          </div>
+          <pre class="code-block">{
+  <span class="c-kw">"workspacePath"</span>:
+    <span class="c-str">"C:\\Users\\you\\boards"</span>,
+  <span class="c-kw">"minimizeToTray"</span>: <span class="c-bool">true</span>,
+  <span class="c-kw">"runOnStartup"</span>: <span class="c-bool">false</span>,
+  <span class="c-kw">"settingsLocation"</span>:
+    <span class="c-str">"appdata"</span>
+}</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHORTCUTS -->
+  <section class="shortcuts" id="shortcuts">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Keyboard Shortcuts</p>
+        <h2>Built for keyboard<br/>power users.</h2>
+      </div>
+      <div class="shortcuts-table">
+        <div class="shortcut-row">
+          <div class="shortcut-keys"><kbd>Enter</kbd></div>
+          <div class="shortcut-desc">Create task (quick)</div>
+        </div>
+        <div class="shortcut-row">
+          <div class="shortcut-keys"><kbd>Alt</kbd><span class="kbd-plus">+</span><kbd>Enter</kbd></div>
+          <div class="shortcut-desc">Create task + open detail editor</div>
+        </div>
+        <div class="shortcut-row">
+          <div class="shortcut-keys"><kbd>Double-click on task</kbd></div>
+          <div class="shortcut-desc">Inline rename task's title</div>
+        </div>
+        <div class="shortcut-row">
+          <div class="shortcut-keys"><kbd>Right-click on task</kbd></div>
+          <div class="shortcut-desc">Open task's detail editor</div>
+        </div>
+        <div class="shortcut-row">
+          <div class="shortcut-keys"><kbd>Ctrl</kbd><span class="kbd-plus">+</span><kbd>F</kbd></div>
+          <div class="shortcut-desc">Jump to search field</div>
+        </div>		
+        <div class="shortcut-row">
+          <div class="shortcut-keys"><kbd>Ctrl</kbd><span class="kbd-plus">+</span><kbd>L</kbd></div>
+          <div class="shortcut-desc">Toggle left panel</div>
+        </div>		
+        <div class="shortcut-row">
+          <div class="shortcut-keys"><kbd>Ctrl</kbd><span class="kbd-plus">+</span><kbd>B</kbd></div>
+          <div class="shortcut-desc">Add new column to board</div>
+        </div>
+        <div class="shortcut-row">
+          <div class="shortcut-keys"><kbd>Ctrl</kbd><span class="kbd-plus">+</span><kbd>T</kbd></div>
+          <div class="shortcut-desc">Create new board</div>
+        </div>
+        <div class="shortcut-row">
+          <div class="shortcut-keys"><kbd>Ctrl</kbd><span class="kbd-plus">+</span><kbd>A</kbd></div>
+          <div class="shortcut-desc">Archive all tasks from Done column</div>
+        </div>		
+        <div class="shortcut-row">
+          <div class="shortcut-keys"><kbd>Ctrl</kbd><span class="kbd-plus">+</span><kbd>Scroll</kbd></div>
+          <div class="shortcut-desc">Zoom board in/out (60%–170%)</div>
+        </div>
+        <div class="shortcut-row">
+          <div class="shortcut-keys"><kbd>Esc</kbd></div>
+          <div class="shortcut-desc">Close modal</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECH STACK -->
+  <section class="tech">
+    <div class="container">
+      <div class="tech-inner">
+        <div class="tech-text">
+          <p class="section-eyebrow">Tech Stack</p>
+          <h2>Lightweight.<br/>Fast. Modern.</h2>
+          <p>Built with Tauri and React, bundled with Vite. No external dependencies for your data. Just files.</p>
+        </div>
+        <div class="tech-table">
+          <div class="tech-row">
+            <div class="tech-layer">UI</div>
+            <div class="tech-val">React 18 · CSS Modules</div>
+          </div>
+          <div class="tech-row">
+            <div class="tech-layer">Desktop</div>
+            <div class="tech-val">Tauri 2</div>
+          </div>
+          <div class="tech-row">
+            <div class="tech-layer">Bundler</div>
+            <div class="tech-val">Vite 8 + Terser</div>
+          </div>
+          <div class="tech-row">
+            <div class="tech-layer">Packaging</div>
+            <div class="tech-val">Tauri bundler</div>
+          </div>
+          <div class="tech-row">
+            <div class="tech-layer">File watching</div>
+            <div class="tech-val">Chokidar</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THEMES -->
+  <section class="themes-dl" id="themes">
+    <div class="container">
+      <div class="themes-dl-inner">
+        <div class="themes-dl-text">
+          <p class="section-eyebrow">Theme Pack</p>
+          <h2>25 themes,<br/><em>one download.</em></h2>
+          <p>KamKan comes with 25 themes for everyone's tastes. From minimal light to deep dark, there's a theme for every workflow and mood.</p>
+		  <p>Not enough ? Customize your own theme from an existing one, or drop a theme's JSON file into KamKan's theme importer and switch between them instantly. </p>
+          <p class="themes-dl-note">Import via Settings → Themes → Import JSON</p>
+        </div>
+        <div class="themes-preview-grid">
+          <div class="theme-preview-card" style="--tp-bg:#f0ece2; --tp-panel:#e8e3d8; --tp-card:#ddd8cc; --tp-text:#4a4540; --tp-accent:#7a9e8e;">
+            <div class="tp-bar">
+              <span class="tp-dot" style="background:#e05c5c"></span>
+              <span class="tp-dot" style="background:#e8a838"></span>
+              <span class="tp-dot" style="background:#4caf82"></span>
+            </div>
+            <div class="tp-col"><div class="tp-task"></div><div class="tp-task tp-task-short"></div></div>
+            <div class="tp-col"><div class="tp-task tp-task-accent"></div></div>
+            <span class="tp-label">Warm Sand</span>
+          </div>
+          <div class="theme-preview-card" style="--tp-bg:#f4f4f6; --tp-panel:#eaeaed; --tp-card:#ffffff; --tp-text:#2a2b30; --tp-accent:#5B8DEF;">
+            <div class="tp-bar">
+              <span class="tp-dot" style="background:#e05c5c"></span>
+              <span class="tp-dot" style="background:#e8a838"></span>
+              <span class="tp-dot" style="background:#4caf82"></span>
+            </div>
+            <div class="tp-col"><div class="tp-task"></div><div class="tp-task tp-task-short"></div></div>
+            <div class="tp-col"><div class="tp-task tp-task-accent"></div></div>
+            <span class="tp-label">Clean Light</span>
+          </div>
+          <div class="theme-preview-card" style="--tp-bg:#ede0f5; --tp-panel:#e2d3ef; --tp-card:#f5eeff; --tp-text:#3d2a55; --tp-accent:#9b59b6;">
+            <div class="tp-bar">
+              <span class="tp-dot" style="background:#e05c5c"></span>
+              <span class="tp-dot" style="background:#e8a838"></span>
+              <span class="tp-dot" style="background:#4caf82"></span>
+            </div>
+            <div class="tp-col"><div class="tp-task"></div><div class="tp-task tp-task-short"></div></div>
+            <div class="tp-col"><div class="tp-task tp-task-accent"></div></div>
+            <span class="tp-label">Lavender</span>
+          </div>
+          <div class="theme-preview-card" style="--tp-bg:#0d1b2e; --tp-panel:#132340; --tp-card:#1a3050; --tp-text:#c8d8f0; --tp-accent:#4d8fd4;">
+            <div class="tp-bar">
+              <span class="tp-dot" style="background:#e05c5c"></span>
+              <span class="tp-dot" style="background:#e8a838"></span>
+              <span class="tp-dot" style="background:#4caf82"></span>
+            </div>
+            <div class="tp-col"><div class="tp-task"></div><div class="tp-task tp-task-short"></div></div>
+            <div class="tp-col"><div class="tp-task tp-task-accent"></div></div>
+            <span class="tp-label">Deep Ocean</span>
+          </div>
+          <div class="theme-preview-card" style="--tp-bg:#1a1400; --tp-panel:#231c02; --tp-card:#2c2402; --tp-text:#e8c96e; --tp-accent:#d4a017;">
+            <div class="tp-bar">
+              <span class="tp-dot" style="background:#e05c5c"></span>
+              <span class="tp-dot" style="background:#e8a838"></span>
+              <span class="tp-dot" style="background:#4caf82"></span>
+            </div>
+            <div class="tp-col"><div class="tp-task"></div><div class="tp-task tp-task-short"></div></div>
+            <div class="tp-col"><div class="tp-task tp-task-accent"></div></div>
+            <span class="tp-label">Amber Night</span>
+          </div>
+          <div class="theme-preview-card" style="--tp-bg:#111214; --tp-panel:#18191d; --tp-card:#2a2b31; --tp-text:#e8e8eb; --tp-accent:#5B8DEF;">
+            <div class="tp-bar">
+              <span class="tp-dot" style="background:#e05c5c"></span>
+              <span class="tp-dot" style="background:#e8a838"></span>
+              <span class="tp-dot" style="background:#4caf82"></span>
+            </div>
+            <div class="tp-col"><div class="tp-task"></div><div class="tp-task tp-task-short"></div></div>
+            <div class="tp-col"><div class="tp-task tp-task-accent"></div></div>
+            <span class="tp-label">Dark Default</span>
+          </div>
+          <div class="theme-preview-card theme-preview-more">
+            <span class="tp-more-count">+18</span>
+            <span class="tp-more-label">more themes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOWNLOAD -->
+  <section class="download" id="download">
+    <div class="container">
+      <div class="download-inner">
+        <div class="download-text">
+          <p class="section-eyebrow">Download</p>
+          <h2>Get KamKan<br/><em>for free.</em></h2>
+          <p>Available for Windows and macOS (soon). No account required. Just download and go.</p>
+          <p class="prereq">Installer and portable builds available.</p>
+        </div>
+        <div class="download-cards">
+          <div class="download-card">
+            <div class="dl-platform">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>
+              Windows
+            </div>
+            <p class="dl-sub">Windows 10 / 11 · 64-bit</p>
+            <a href="https://github.com/dayeggpi/KamKan/releases/download/1.1.20/kamkan.exe" class="btn btn-primary btn-dl">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download Portable (.exe)
+            </a>
+            <a href="https://github.com/dayeggpi/KamKan/releases/download/1.1.20/KamKan_1.1.20_x64-setup.exe" class="btn btn-ghost btn-dl-secondary">Download Installer (.exe)</a>
+            <a href="https://github.com/dayeggpi/KamKan/releases/download/1.1.20/KamKan_1.1.20_x64_en-US.msi" class="btn btn-ghost btn-dl-secondary">Download MSI (.msi)</a>
+          </div>
+          <div class="download-card">
+            <div class="dl-platform">
+              <svg width="32" height="32" viewBox="0 0 814 1000" fill="currentColor"><path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76 0-103.7 40.8-165.9 40.8s-105-37.5-155.5-127.4C46 790.7 0 663 0 541.8c0-207.3 135.3-316.9 269-316.9 70.9 0 130 46.4 174.5 46.4 42.8 0 110.1-49.4 193.9-49.4 31.2 0 108.2 2.6 160.8 74.4zm-164.5-256c34.5-40.8 60.1-97.8 60.1-154.8 0-7.9-.6-15.8-2-22.1-57.4 2-125.3 38.3-168.1 86.4-32.5 36.9-60.1 93.9-60.1 151.6 0 8.5 1.3 17 2 19.6 3.3.6 8.6 1.3 13.9 1.3 51.5 0 113.1-34.5 154.2-82z"/></svg>
+              macOS
+            </div>
+            <p class="dl-sub">macOS 11+ · Apple Silicon & Intel</p>
+            <a href="#download" class="btn btn-primary btn-dl">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download .dmg (SOON)
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="#" class="nav-logo">
+            <span class="nav-logo-mark">K</span>KamKan
+          </a>
+          <p>Markdown-native kanban board<br/>for Windows, Mac &amp; Linux.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <p class="footer-col-title">Product</p>
+            <a href="#features">Features</a>
+            <a href="#format">Data Format</a>
+            <a href="#themes">Themes</a>
+            <a href="#shortcuts">Shortcuts</a>
+            <a href="#download">Download</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 KamKan. All data stays on your machine.</p>
+        <p>Built by <a href="https://github.com/dayeggpi" target="_blank">dayeggpi</a> with Tauri · React · ❤️</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
