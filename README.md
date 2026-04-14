@@ -38,12 +38,15 @@ Each task can have:
 ### Markdown Support
 Full markdown in task descriptions and column headers:
 - Bold, italic, strikethrough, highlight (`==text==`)
-- Headings (H1–H3), blockquotes, horizontal rules
+- Headings (H1–H6), blockquotes (`> `), horizontal rules (`---`)
 - Bullet, numbered, and task lists (`- [ ]` / `- [x]`) with live checkbox toggle
 - Inline code and fenced code blocks
-- External links and bare URL auto-detection
+- Comments (`%% comment %%`) which wont show on rendered markdown
+- External links and bare URL auto-detection (highlight text, copy link, will format it to `[url link](https://google.com/)`)
 - **Wikilinks** — `[[BOARD-ID]]` links to a board, `[[BOARD-ID-N]]` links to a specific task
 - Wikilink **autocomplete** when typing `[[`
+- Internal attachment link (`![[filename]]`)
+- Table
 - Formatting toolbar in edit mode
 
 ### Search & Filtering
