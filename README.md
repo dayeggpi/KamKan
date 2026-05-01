@@ -4,6 +4,8 @@
 
 A free lightweight Tauri + React desktop app that stores all tasks as plain `.md` files — fully readable and editable outside the app, version-control friendly, and zero external dependencies.
 
+See https://github.com/dayeggpi/KamKan-MCP-SKILL for MCP and SKILL support.
+
 ---
 
 ## Features
